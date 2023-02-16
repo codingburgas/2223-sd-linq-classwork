@@ -50,9 +50,12 @@ namespace LinqExperiment
                     reader.GetValue(5).ToString()));
             }
 
-            //var result = userList.OrderBy(user => user.FirstName).ThenByDescending(user => user.LastName);
 
-            //foreach(var item in result)
+
+            //---------------------Sorting--------------------
+            //var result = userList.OrderBy(user => user.Gender).ThenBy(user => user.IPAddress);
+
+            //foreach (var item in result)
             //{
             //    Console.Write(item.Id + " | ");
             //    Console.Write(item.FirstName + " | ");
@@ -62,29 +65,51 @@ namespace LinqExperiment
             //    Console.WriteLine(item.IPAddress);
             //}
 
+            //---------------------Sorting and filtering--------------------
+
+            //var result = userList.OrderBy(x => x.IPAddress).Select(user => user.IPAddress);
+
+            //foreach(var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //---------------------Filtering--------------------
+
+            //var result = userList.Where(user => user.IPAddress.StartsWith("125")).Select(user => user.IPAddress);
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //---------------------Filtering--------------------
+
             //var result = userList.Select(user => user.FirstName).Where(user => user.StartsWith("A")).Count();
 
             //Console.WriteLine(result);
 
 
+
+
             // METHOD SYNTAX
-            var result = userList.Where(x => x.Gender == "Male").Select(x => x.IPAddress).ToList();
+            //var result = userList.Where(x => x.Gender == "Male").Select(x => x.IPAddress).ToList();
+
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+
+
 
             // QUERY SYNTAX
-            var result2 = from user in userList where user.Gender == "Male" select user.IPAddress;
+            //var result2 = from user in userList where user.Gender == "Male" select user.IPAddress;
 
-            
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
-
-            Console.WriteLine("-------------------------");
-
-            foreach (var item in result2)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in result2)
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
     }
 }
